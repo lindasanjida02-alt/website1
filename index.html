@@ -1,232 +1,187 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMIÈRE | Fine Dining</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Sushi Restaurant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, #0f2a1d, #07120b);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .hover-fade:hover {
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+    .nav-scrolled {
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+    }
+  </style>
 </head>
-<body>
+<body class="bg-black text-white">
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-content">
-            <h1>LUMIÈRE</h1>
-            <div class="loader-line"></div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">LUMIÈRE</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#founder">Founder</a></li>
-                <li><a href="#book" class="btn-reserve">Book Sits</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+  <!-- Navbar -->
+  <header class="fixed w-full top-0 z-50 transition-all duration-500">
+    <nav id="navbar" class="flex items-center justify-between px-6 py-4 lg:px-16">
+      <div class="text-2xl font-bold text-white">
+        <img src="https://via.placeholder.com/150x50?text=LOGO" alt="Restaurant Logo" class="h-12">
+      </div>
+      <ul class="hidden md:flex space-x-8 text-white font-medium">
+        <li><a href="#home" class="hover:text-orange-500 transition">Home</a></li>
+        <li><a href="#about" class="hover:text-orange-500 transition">About</a></li>
+        <li><a href="#pages" class="hover:text-orange-500 transition">Pages</a></li>
+        <li><a href="#contact" class="hover:text-orange-500 transition">Contact</a></li>
+      </ul>
+      <a href="#menu" class="hidden md:inline-block px-5 py-2 bg-orange-500 text-black font-semibold rounded hover:bg-orange-600 transition">Menu</a>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-btn" class="text-white text-2xl">&#9776;</button>
+      </div>
     </nav>
+  </header>
 
-    <!-- 1. HOME SECTION (Hero) -->
-    <header class="hero" id="home">
-        <div class="video-bg">
-            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-wine-glass-being-filled-with-red-wine-426-large.mp4" type="video/mp4">
-            </video>
-            <div class="overlay"></div>
-        </div>
-        <div class="hero-content">
-            <p class="hero-subtitle reveal-text">Welcome to Lumière</p>
-            <h1 class="hero-title reveal-text">Culinary <span class="gold-text">Artistry</span></h1>
-            <p class="hero-desc reveal-text">Experience the pinnacle of gastronomy in an atmosphere of timeless elegance.</p>
-            <div class="hero-btns reveal-text">
-                <a href="#menu" class="btn btn-primary">Explore Menu</a>
-                <a href="#book" class="btn btn-outline">Book Table</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-    </header>
+  <!-- Hero Section -->
+  <section id="home" class="hero-bg relative min-h-screen flex flex-col justify-center items-center text-center px-6 lg:px-32">
+    <h1 class="text-4xl lg:text-6xl font-bold mb-4 fade-in">Delicious food & wonderful eating experience</h1>
+    <p class="text-lg lg:text-xl mb-8 fade-in">Experience the finest sushi crafted with precision and love.</p>
+    <a href="#contact" class="px-8 py-3 bg-orange-500 text-black font-semibold rounded hover:bg-orange-600 transition fade-in">Book a Table</a>
+    <img src="https://images.unsplash.com/photo-1617196030971-bc4f243c08b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VzaSUyMHBsYXRlfGVufDB8fDB8fA%3D%3D&ixlib=rb-4.0.3&q=80&w=800" 
+         alt="Sushi Plate" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 lg:w-1/2 floating">
+  </section>
 
-    <!-- 2. ABOUT SECTION -->
-    <section class="about" id="about">
-        <div class="parallax-bg" data-speed="0.5"></div>
-        <div class="container split-layout">
-            <div class="about-text scroll-reveal">
-                <h4 class="section-tag">Our Heritage</h4>
-                <h2 class="section-title">Where Passion Meets <br> <span class="gold-text">Perfection</span></h2>
-                <p>Located in the heart of the city, Lumière offers an intimate dining experience. We believe that food is not just sustenance, but a form of expression. Our ingredients are sourced from the finest local farms, ensuring every bite tells a story of the earth.</p>
-                <div class="stats">
-                    <div class="stat-item">
-                        <h3>15+</h3>
-                        <p>Years Experience</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>3</h3>
-                        <p>Michelin Stars</p>
-                    </div>
-                </div>
-            </div>
-            <div class="about-image scroll-reveal">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Restaurant Interior">
-                    <div class="image-decoration"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Brand / Partner Logos -->
+  <section class="py-12 flex justify-center items-center space-x-8 overflow-x-auto px-6 lg:px-32">
+    <img src="https://via.placeholder.com/150x80?text=Logo1" alt="Brand 1" class="grayscale hover:grayscale-0 transition hover-fade">
+    <img src="https://via.placeholder.com/150x80?text=Logo2" alt="Brand 2" class="grayscale hover:grayscale-0 transition hover-fade">
+    <img src="https://via.placeholder.com/150x80?text=Logo3" alt="Brand 3" class="grayscale hover:grayscale-0 transition hover-fade">
+    <img src="https://via.placeholder.com/150x80?text=Logo4" alt="Brand 4" class="grayscale hover:grayscale-0 transition hover-fade">
+  </section>
 
-    <!-- 3. MENU SECTION -->
-    <section class="menu" id="menu">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <h4 class="section-tag">The Menu</h4>
-                <h2 class="section-title">Signature <span class="gold-text">Dishes</span></h2>
-            </div>
-            
-            <div class="cards-grid">
-                <!-- Card 1 -->
-                <div class="dish-card scroll-reveal">
-                    <div class="card-inner">
-                        <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Steak">
-                        </div>
-                        <div class="card-content">
-                            <h3>Wagyu A5</h3>
-                            <p>Truffle butter, roasted garlic, seasonal vegetables.</p>
-                            <span class="price">$120</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="dish-card scroll-reveal">
-                    <div class="card-inner">
-                        <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Curry">
-                        </div>
-                        <div class="card-content">
-                            <h3>Golden Curry</h3>
-                            <p>Saffron infused, coconut milk, fresh herbs.</p>
-                            <span class="price">$85</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="dish-card scroll-reveal">
-                    <div class="card-inner">
-                        <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Steak">
-                        </div>
-                        <div class="card-content">
-                            <h3>Seared Scallops</h3>
-                            <p>Cauliflower purée, caviar, lemon butter.</p>
-                            <span class="price">$95</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="py-20 lg:py-32 px-6 lg:px-32 grid lg:grid-cols-2 gap-12 items-center">
+    <img src="https://images.unsplash.com/photo-1617196030971-bc4f243c08b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" 
+         alt="Sushi Plate" class="rounded-lg shadow-lg fade-in">
+    <div class="fade-in">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">Immerse yourself in an Asian experience</h2>
+      <p class="mb-6 text-gray-300">Savor authentic sushi rolls, expertly prepared by our master chefs using the finest ingredients and traditional techniques.</p>
+      <div class="flex items-center space-x-4">
+        <a href="#menu" class="px-6 py-3 bg-orange-500 text-black font-semibold rounded hover:bg-orange-600 transition">Food Menu</a>
+        <a href="tel:+1234567890" class="text-orange-500 font-semibold hover:underline">+1 234 567 890</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- 4. FOUNDER STORY SECTION (Specific Layout) -->
-    <section class="founder" id="founder">
-        <div class="container">
-            <div class="founder-layout">
-                <div class="founder-image scroll-reveal">
-                    <div class="image-frame">
-                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Founder">
-                    </div>
-                </div>
-                <div class="founder-content scroll-reveal">
-                    <h4 class="section-tag">The Visionary</h4>
-                    <h2 class="section-title">The Founder's <span class="gold-text">Story</span></h2>
-                    <div class="quote-box">
-                        <p>"I founded Lumière with a singular vision: to create a sanctuary where time stands still, and every meal is a masterpiece."</p>
-                    </div>
-                    <p>Starting in a small kitchen in Paris, Chef Antoine's journey has been defined by an unyielding pursuit of excellence. He believes that true luxury lies in the details—the texture of the bread, the warmth of the wine, and the genuine connection between host and guest.</p>
-                    <p>Today, Lumière stands as a testament to that original dream, blending French tradition with modern innovation.</p>
-                    <div class="signature">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Signature_sample.svg/1200px-Signature_sample.svg.png" alt="Signature" class="sig-img">
-                        <h5>Antoine Dubois</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Mission Section -->
+  <section class="bg-gray-900 py-20 lg:py-32 px-6 lg:px-32 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="fade-in text-left">
+      <h3 class="text-2xl lg:text-3xl font-bold mb-4">"Authentic sushi and rolls, expertly crafted with care, tradition, and exceptional flavors"</h3>
+      <p class="mt-2 text-orange-500 font-semibold">Chef Saito</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" 
+         alt="Chef" class="rounded-lg shadow-lg fade-in">
+  </section>
 
-    <!-- 5. BOOK SITS (Reservation) -->
-    <section class="reservation" id="book">
-        <div class="container">
-            <div class="reservation-box glass-effect scroll-reveal">
-                <div class="form-content">
-                    <h4 class="section-tag">Book Sits</h4>
-                    <h2 class="section-title">Secure Your <span class="gold-text">Seat</span></h2>
-                    <form class="reservation-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Full Name" required>
-                            <input type="email" placeholder="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="date" required>
-                            <input type="time" required>
-                            <select>
-                                <option>2 Guests</option>
-                                <option>3 Guests</option>
-                                <option>4 Guests</option>
-                                <option>5+ Guests</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary full-width">Confirm Reservation</button>
-                    </form>
-                </div>
-            </div>
+  <!-- Blog Section -->
+  <section class="py-20 lg:py-32 px-6 lg:px-32">
+    <h2 class="text-3xl lg:text-4xl font-bold mb-12 text-center fade-in">Restaurant blog & update</h2>
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition fade-in">
+        <img src="https://images.unsplash.com/photo-1604908177521-1c88d3e72f2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Blog 1" class="w-full h-48 object-cover hover:scale-105 transition">
+        <div class="p-6">
+          <p class="text-sm text-orange-500 mb-2">March 5, 2026</p>
+          <h3 class="text-xl font-semibold mb-4">Sushi Trends 2026</h3>
+          <a href="#" class="text-orange-500 font-semibold hover:underline">Read more →</a>
         </div>
-    </section>
+      </div>
+      <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition fade-in">
+        <img src="https://images.unsplash.com/photo-1617196030971-bc4f243c08b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Blog 2" class="w-full h-48 object-cover hover:scale-105 transition">
+        <div class="p-6">
+          <p class="text-sm text-orange-500 mb-2">March 1, 2026</p>
+          <h3 class="text-xl font-semibold mb-4">Master Chef Techniques</h3>
+          <a href="#" class="text-orange-500 font-semibold hover:underline">Read more →</a>
+        </div>
+      </div>
+      <div class="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition fade-in">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Blog 3" class="w-full h-48 object-cover hover:scale-105 transition">
+        <div class="p-6">
+          <p class="text-sm text-orange-500 mb-2">February 20, 2026</p>
+          <h3 class="text-xl font-semibold mb-4">Exclusive Sushi Plates</h3>
+          <a href="#" class="text-orange-500 font-semibold hover:underline">Read more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-col">
-                <h3>LUMIÈRE</h3>
-                <p>123 Culinary Ave, New York, NY</p>
-                <p>+1 (555) 123-4567</p>
-            </div>
-            <div class="footer-col">
-                <h4>Hours</h4>
-                <p>Mon-Sun: 5pm - 11pm</p>
-            </div>
-            <div class="footer-col">
-                <h4>Social</h4>
-                <div class="social-links">
-                    <a href="#">IG</a>
-                    <a href="#">FB</a>
-                    <a href="#">TW</a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 Lumière Restaurant. All rights reserved.</p>
-        </div>
-    </footer>
+  <!-- Feature Image Section -->
+  <section class="py-20 lg:py-32 flex justify-center items-center">
+    <img src="https://images.unsplash.com/photo-1617196030971-bc4f243c08b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" 
+         alt="Ramen Bowl" class="w-3/4 lg:w-1/2 rounded-lg shadow-lg floating fade-in">
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="bg-green-900 text-white py-16 px-6 lg:px-32 text-center">
+    <h4 class="text-2xl font-bold mb-4">Experience Authentic Asian Cuisine</h4>
+    <p class="mb-4">123 Sushi Street, Tokyo, Japan | email@sushirestaurant.com | +81 123 456 789</p>
+    <div class="flex justify-center space-x-6 mb-6">
+      <a href="#" class="hover:text-orange-500 transition">Privacy Policy</a>
+      <a href="#" class="hover:text-orange-500 transition">Careers</a>
+      <a href="#" class="hover:text-orange-500 transition">FAQ</a>
+    </div>
+    <img src="https://via.placeholder.com/150x50?text=LOGO" alt="Restaurant Logo" class="mx-auto h-12">
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Sticky Navbar background
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if(window.scrollY > 50) navbar.classList.add('nav-scrolled');
+      else navbar.classList.remove('nav-scrolled');
+    });
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    mobileBtn.addEventListener('click', () => {
+      const menu = document.querySelector('ul');
+      menu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
